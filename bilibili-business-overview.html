@@ -134,6 +134,28 @@
   .trait::before { content: ""; position: absolute; left: 2px; top: 7px; width: 3px; height: 3px; border-radius: 50%; background: #fb7299; opacity: .6; }
   .trait b { color: #ff9bb8; font-weight: 700; }
 
+  /* behavior analysis */
+  .behavior { margin-top: 12px; }
+  .beh-wrap { display: grid; grid-template-columns: 188px 1fr; gap: 20px; align-items: center; }
+  .beh-chart { position: relative; width: 188px; height: 188px; }
+  .beh-chart svg { width: 100%; height: 100%; display: block; }
+  .beh-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; }
+  .beh-center .big { font-size: 26px; font-weight: 800; color: #ff9bb8; line-height: 1; }
+  .beh-center .small { font-size: 9.5px; color: #9a7480; margin-top: 4px; text-align: center; line-height: 1.4; }
+  .beh-legend { display: flex; flex-direction: column; gap: 6px; }
+  .beh-row { display: flex; align-items: center; gap: 8px; font-size: 11.5px; padding: 2px 0; }
+  .beh-dot { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; }
+  .beh-name { color: #b3a1a8; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+  .beh-row.commercial .beh-name { color: #ececf0; font-weight: 700; }
+  .beh-pct { margin-left: auto; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+  .beh-tag { font-size: 8.5px; font-weight: 700; padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
+  .beh-tag.ad   { color: #82b8ff; background: #172b55; }
+  .beh-tag.vip  { color: #c49aff; background: #2e1458; }
+  .beh-tag.game { color: #7ae898; background: #163d22; }
+  .beh-tag.ec   { color: #ffad5a; background: #4a2208; }
+  .beh-tag.eco  { color: #9aa6b0; background: #232830; }
+  .beh-note { font-size: 10px; color: #6b4f59; margin-top: 14px; line-height: 1.55; }
+
   /* modal: user-need × business analysis block */
   .m-persona { border-radius: 12px; padding: 13px 15px; border: 1px solid #2a2a38; background: rgba(255,255,255,.025); }
   .mp-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 11px; }
@@ -468,6 +490,65 @@
       <div class="trait">“<b>为爱发电</b>”——为优质内容与喜欢的创作者付费意愿强。</div>
       <div class="trait">每 10 个中国 Z 世代年轻人，就有 <b>7 个</b>是 B站用户。</div>
     </div>
+  </div>
+
+  <div class="behavior pcard">
+    <div class="pcard-title">用户行为分析 · 用户主要在 B站做什么</div>
+    <div class="beh-wrap">
+      <div class="beh-chart">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#5f9cf0" stroke-width="34" pathLength="100" stroke-dasharray="41.4 100" transform="rotate(-90 100 100)"></circle>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#4ec870" stroke-width="34" pathLength="100" stroke-dasharray="17.4 100" transform="rotate(61.2 100 100)"></circle>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#a970f0" stroke-width="34" pathLength="100" stroke-dasharray="12.4 100" transform="rotate(126 100 100)"></circle>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#fb7299" stroke-width="34" pathLength="100" stroke-dasharray="10.4 100" transform="rotate(172.8 100 100)"></circle>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#6b7785" stroke-width="34" pathLength="100" stroke-dasharray="8.4 100" transform="rotate(212.4 100 100)"></circle>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#2bc4c4" stroke-width="34" pathLength="100" stroke-dasharray="3.4 100" transform="rotate(244.8 100 100)"></circle>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#e08030" stroke-width="34" pathLength="100" stroke-dasharray="2.4 100" transform="rotate(259.2 100 100)"></circle>
+        </svg>
+        <div class="beh-center">
+          <div class="big">91%</div>
+          <div class="small">行为可触达<br>商业变现模块</div>
+        </div>
+      </div>
+      <div class="beh-legend">
+        <div class="beh-row commercial">
+          <span class="beh-dot" style="background:#5f9cf0"></span>
+          <span class="beh-name">看 PUGV 内容（生活/娱乐/科技/知识）<span class="beh-tag ad">广告变现</span></span>
+          <span class="beh-pct">42%</span>
+        </div>
+        <div class="beh-row commercial">
+          <span class="beh-dot" style="background:#4ec870"></span>
+          <span class="beh-name">逛游戏区 / 玩游戏<span class="beh-tag game">游戏</span></span>
+          <span class="beh-pct">18%</span>
+        </div>
+        <div class="beh-row commercial">
+          <span class="beh-dot" style="background:#a970f0"></span>
+          <span class="beh-name">看番剧 · 国创 · 影视<span class="beh-tag vip">大会员</span></span>
+          <span class="beh-pct">13%</span>
+        </div>
+        <div class="beh-row commercial">
+          <span class="beh-dot" style="background:#fb7299"></span>
+          <span class="beh-name">看直播<span class="beh-tag vip">打赏</span><span class="beh-tag ec">带货</span></span>
+          <span class="beh-pct">11%</span>
+        </div>
+        <div class="beh-row">
+          <span class="beh-dot" style="background:#6b7785"></span>
+          <span class="beh-name">弹幕 · 评论 · 一键三连<span class="beh-tag eco">生态黏性 · 非直接变现</span></span>
+          <span class="beh-pct">9%</span>
+        </div>
+        <div class="beh-row commercial">
+          <span class="beh-dot" style="background:#2bc4c4"></span>
+          <span class="beh-name">知识学习 · 付费课堂<span class="beh-tag vip">知识付费</span></span>
+          <span class="beh-pct">4%</span>
+        </div>
+        <div class="beh-row commercial">
+          <span class="beh-dot" style="background:#e08030"></span>
+          <span class="beh-name">购物 · 会员购<span class="beh-tag ec">电商</span></span>
+          <span class="beh-pct">3%</span>
+        </div>
+      </div>
+    </div>
+    <div class="beh-note">※ 指示性占比，综合公开口径估算（游戏区为最大单一分区、生活/娱乐/游戏/动漫/科技为主品类、直播为第二收入源、月互动 155 亿次）。<b style="color:#ff9bb8">加粗行</b>为可直接对应商业变现模块，合计约 91% 的用户行为可被商业化。</div>
   </div>
 
 </div>
