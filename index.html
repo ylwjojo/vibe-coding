@@ -350,6 +350,60 @@
   .fw-axle { margin-top: 4px; font-size: 11px; line-height: 1.55; color: #9aa6b0; background: #11161a; border: 1px solid #1d2a30; border-radius: 9px; padding: 10px 12px; }
   .fw-axle b { color: #9fe9ee; }
 
+  /* ===== cost & profit layer ===== */
+  .profit { margin-top: 22px; border-radius: 16px; border: 1px solid #2a2418; background: #0f0d09; padding: 20px; }
+  .pf-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .pf-badge { font-size: 9px; font-weight: 800; letter-spacing: .1em; color: #16120a; background: #d4ab52; padding: 3px 8px; border-radius: 5px; }
+  .pf-head h2 { font-size: 18px; font-weight: 800; color: #ffd98a; }
+  .pf-head .s { font-size: 11px; color: #8a7a52; }
+  .pf-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+  .pf-kpi { background: #16130c; border: 1px solid #2a2418; border-radius: 11px; padding: 12px 14px; }
+  .pf-kpi .v { font-size: 19px; font-weight: 800; color: #ffd98a; line-height: 1.1; }
+  .pf-kpi .v span { font-size: 12px; }
+  .pf-kpi .l { font-size: 10px; color: #8a7a52; margin-top: 4px; line-height: 1.4; }
+  .pf-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pf-card { background: #16130c; border: 1px solid #2a2418; border-radius: 11px; padding: 15px 16px; }
+  .pf-card-title { font-size: 11px; font-weight: 800; color: #ffd98a; margin-bottom: 13px; }
+  .pf-row { margin-bottom: 12px; } .pf-row:last-child { margin-bottom: 0; }
+  .pf-top { display: flex; justify-content: space-between; align-items: baseline; font-size: 11.5px; margin-bottom: 5px; }
+  .pf-top .nm { color: #cabfa0; } .pf-top .vl { color: #ffd98a; font-weight: 800; }
+  .pf-track { height: 6px; border-radius: 100px; background: #241d10; overflow: hidden; }
+  .pf-fill { height: 100%; border-radius: 100px; }
+  .pf-q { font-size: 9.5px; color: #8a7a52; margin-left: 5px; font-weight: 700; }
+  .pf-note { font-size: 10px; color: #6b5d3a; margin-top: 14px; line-height: 1.55; }
+
+  /* ===== roadmap & counter-metrics (execution layer) ===== */
+  .roadmap { margin-top: 22px; border-radius: 16px; border: 1px solid #1d3138; background: #0a1216; padding: 20px; }
+  .rm-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 13px; flex-wrap: wrap; }
+  .rm-badge { font-size: 9px; font-weight: 800; letter-spacing: .1em; color: #06181c; background: #5fd9e0; padding: 3px 8px; border-radius: 5px; }
+  .rm-head h2 { font-size: 18px; font-weight: 800; color: #9fe9ee; }
+  .rm-head .s { font-size: 11px; color: #5a7a80; }
+  .rm-principle { font-size: 11.5px; line-height: 1.55; color: #9aa6b0; background: #11161a; border: 1px solid #1d2a30; border-radius: 9px; padding: 10px 12px; margin-bottom: 14px; }
+  .rm-principle b { color: #9fe9ee; }
+  .rm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+  .rm-col { background: #0d1a1f; border: 1px solid #1d3138; border-radius: 11px; padding: 14px; }
+  .rm-when { font-size: 12px; font-weight: 800; color: #9fe9ee; }
+  .rm-when span { color: #5a7a80; font-weight: 600; font-size: 10px; margin-left: 4px; }
+  .rm-items { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .rm-item { font-size: 11px; line-height: 1.45; color: #bcc4c8; padding-left: 14px; position: relative; }
+  .rm-item::before { content: ""; position: absolute; left: 2px; top: 6px; width: 5px; height: 5px; border-radius: 50%; }
+  .rm-item.ad::before { background: #5f9cf0; } .rm-item.vip::before { background: #a970f0; }
+  .rm-item.game::before { background: #4ec870; } .rm-item.ec::before { background: #e08030; }
+  .rm-item b { color: #fff; font-weight: 700; }
+  .rm-counter { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .rm-ccard { background: #14110c; border: 1px solid #2a2418; border-radius: 11px; padding: 13px 15px; }
+  .rm-ccard.red { background: #160f0f; border-color: #3a1f1f; }
+  .rm-ctitle { font-size: 11px; font-weight: 800; margin-bottom: 9px; color: #e0b15a; }
+  .rm-ccard.red .rm-ctitle { color: #e87a7a; }
+  .rm-ci { font-size: 11px; line-height: 1.45; color: #bcb6a8; padding-left: 14px; position: relative; margin-bottom: 7px; }
+  .rm-ci:last-child { margin-bottom: 0; }
+  .rm-ci::before { content: "✕"; position: absolute; left: 0; top: 0; font-size: 9px; color: #e0b15a; font-weight: 800; }
+  .rm-ccard.red .rm-ci::before { color: #e87a7a; }
+  .rm-ci b { color: #fff; font-weight: 700; }
+  .rm-ci .tag { font-size: 9px; font-weight: 700; padding: 0 5px; border-radius: 3px; margin-right: 5px; }
+  .rm-ci .tag.ad { color: #82b8ff; background: #172b55; } .rm-ci .tag.vip { color: #c49aff; background: #2e1458; }
+  .rm-ci .tag.game { color: #7ae898; background: #163d22; } .rm-ci .tag.ec { color: #ffad5a; background: #4a2208; }
+
   /* ===== mobile / app adaptation ===== */
   @media (max-width: 600px) {
     body { padding: 18px 13px 30px; -webkit-text-size-adjust: 100%; }
@@ -373,6 +427,8 @@
     .flywheel { padding: 16px; }
     .fw-body { grid-template-columns: 1fr; gap: 14px; }
     .fw-chart { max-width: 380px; margin: 0 auto; width: 100%; }
+    .profit { padding: 16px; } .pf-cols { grid-template-columns: 1fr; }
+    .roadmap { padding: 16px; } .rm-grid { grid-template-columns: 1fr; } .rm-counter { grid-template-columns: 1fr; }
     /* modal becomes a bottom sheet */
     .overlay { padding: 0; align-items: flex-end; }
     .modal { max-width: 100%; max-height: 90vh; border-radius: 20px 20px 0 0; padding: 22px 18px calc(24px + env(safe-area-inset-bottom)); }
@@ -395,7 +451,7 @@
 
 <div class="firstprinciple">
   <div class="fp-label">第一性原理 · 一句立魂</div>
-  <div class="fp-def">B站不是视频网站，本质是一台「<b>以社区信任为本位的注意力 × IP 复利机器</b>」——把 Z 世代的<b>信任与时间</b>，复利成可持续变现的资产。</div>
+  <div class="fp-def">B站的生意，一句话说透：<b>先用好内容换来年轻人的信任和时间，再把信任和时间变成钱</b>。它卖的从来不是视频，而是<b>“被信任的注意力”</b>——信任越厚，能变现的方式（广告 / 会员 / 游戏 / 电商）就越多；信任一旦被透支，再多流量也变不成钱。</div>
   <div class="fp-rule"><span class="fp-rule-tag">不可违背的原则</span><span>凡<b>先攒信任、再变现</b>的优先；凡<b>透支信任换短期收入</b>的，一律降级。下方四大业务的盈亏，本质都是这一条的应验。</span></div>
 </div>
 
@@ -638,6 +694,60 @@
   </div>
 </div>
 
+<div class="profit">
+  <div class="pf-head">
+    <span class="pf-badge">利润层</span>
+    <h2>成本与盈利质量 · 钱花到哪、谁最赚</h2>
+    <span class="s">收入只是上半场，利润才是终局</span>
+  </div>
+  <div class="pf-kpis">
+    <div class="pf-kpi"><div class="v">~36<span>%</span></div><div class="l">毛利率（历史最佳，连续 8 季提升）</div></div>
+    <div class="pf-kpi"><div class="v">首次<span> 年度盈利</span></div><div class="l">2025 全年经调整净利转正</div></div>
+    <div class="pf-kpi"><div class="v">收入分成<span> 最大成本</span></div><div class="l">给 UP主/主播/渠道的分成是第一大支出</div></div>
+  </div>
+  <div class="pf-cols">
+    <div class="pf-card">
+      <div class="pf-card-title">成本去哪了（营业成本结构 · 指示性）</div>
+      <div class="pf-row">
+        <div class="pf-top"><span class="nm">收入分成成本（创作者/主播/渠道）</span><span class="vl">~50%</span></div>
+        <div class="pf-track"><div class="pf-fill" style="width:50%;background:#e0b15a"></div></div>
+      </div>
+      <div class="pf-row">
+        <div class="pf-top"><span class="nm">内容 / 版权采购（番剧·游戏）</span><span class="vl">~18%</span></div>
+        <div class="pf-track"><div class="pf-fill" style="width:18%;background:#c98f3a"></div></div>
+      </div>
+      <div class="pf-row">
+        <div class="pf-top"><span class="nm">带宽 · 服务器</span><span class="vl">~12%</span></div>
+        <div class="pf-track"><div class="pf-fill" style="width:12%;background:#9a6f2a"></div></div>
+      </div>
+      <div class="pf-row">
+        <div class="pf-top"><span class="nm">其他营业成本</span><span class="vl">~20%</span></div>
+        <div class="pf-track"><div class="pf-fill" style="width:20%;background:#6b4f1f"></div></div>
+      </div>
+    </div>
+    <div class="pf-card">
+      <div class="pf-card-title">谁最赚？各业务毛利质量（指示性排序）</div>
+      <div class="pf-row">
+        <div class="pf-top"><span class="nm">广告<span class="pf-q">几乎纯增量利润</span></span><span class="vl">高</span></div>
+        <div class="pf-track"><div class="pf-fill" style="width:90%;background:#5f9cf0"></div></div>
+      </div>
+      <div class="pf-row">
+        <div class="pf-top"><span class="nm">游戏<span class="pf-q">自研高·代理需分成</span></span><span class="vl">中高</span></div>
+        <div class="pf-track"><div class="pf-fill" style="width:68%;background:#4ec870"></div></div>
+      </div>
+      <div class="pf-row">
+        <div class="pf-top"><span class="nm">增值<span class="pf-q">直播分成高·会员较好</span></span><span class="vl">中</span></div>
+        <div class="pf-track"><div class="pf-fill" style="width:48%;background:#a970f0"></div></div>
+      </div>
+      <div class="pf-row">
+        <div class="pf-top"><span class="nm">电商<span class="pf-q">大开环轻资产后改善</span></span><span class="vl">低</span></div>
+        <div class="pf-track"><div class="pf-fill" style="width:24%;background:#e08030"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pf-note">※ 成本占比与毛利质量为<b style="color:#ffd98a">指示性估算</b>（B站不单独披露分业务毛利）；关键事实：广告增长之所以最该重仓，不只因为增速快，更因为它<b style="color:#ffd98a">毛利最高、利润含金量最大</b>——而电商即便 GMV 涨，利润贡献也很薄。</div>
+</div>
+
 <div class="persona">
   <div class="persona-head">
     <div>
@@ -818,6 +928,59 @@
         <div class="prio-top"><span class="prio-name">电商 &amp; IP</span><span class="prio-rev">20亿 · -3%</span><span class="prio-act act-test">试验 · 重构</span></div>
         <div class="prio-desc">低能力 × 中机会。购物心智弱，坚持<b>轻资产大开环 + 聚焦 IP 衍生</b>，小步试错，别盲目自营重投。</div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="roadmap">
+  <div class="rm-head">
+    <span class="rm-badge">执行层</span>
+    <h2>战略路线图 · 时序与反指标</h2>
+    <span class="s">先做谁、后做谁，以及要主动压住什么</span>
+  </div>
+  <div class="rm-principle">⏱ <b>时序原则</b>：先夯飞轮地基（<b>内容供给 × 社区信任</b>），再上变现——没跑通 ①内容 × ②流量，就不透支去做 ③变现。地基没稳之前，不追短期收入。</div>
+  <div class="rm-grid">
+    <div class="rm-col">
+      <div class="rm-when">近期 2026<span>夯实 · 提效</span></div>
+      <div class="rm-items">
+        <div class="rm-item ad"><b>广告</b>：加码 ad load + 扩效果广告客户盘</div>
+        <div class="rm-item vip"><b>增值</b>：守成，靠充电/会员权益提 ARPU</div>
+        <div class="rm-item game"><b>游戏</b>：三谋长线运营，稳住基本盘</div>
+        <div class="rm-item ec"><b>电商</b>：收缩自营，全面转大开环导流</div>
+      </div>
+    </div>
+    <div class="rm-col">
+      <div class="rm-when">中期 2027<span>做深 · 储备</span></div>
+      <div class="rm-items">
+        <div class="rm-item ad"><b>广告</b>：做深商业基建（必达/AI 投放），提客单</div>
+        <div class="rm-item game"><b>游戏</b>：自研+独代储备下一个爆款</div>
+        <div class="rm-item ec"><b>电商</b>：聚焦 IP 衍生（会员购）建真壁垒</div>
+        <div class="rm-item vip"><b>增值</b>：充电/课堂规模化</div>
+      </div>
+    </div>
+    <div class="rm-col">
+      <div class="rm-when">远期<span>飞轮外扩</span></div>
+      <div class="rm-items">
+        <div class="rm-item"><b>开放生态</b>：把信任飞轮扩成平台能力对外输出</div>
+        <div class="rm-item"><b>IP 宇宙 / 出海</b>：内容资产二次复利</div>
+        <div class="rm-item"><b>多元协同</b>：降低对单一业务/爆款的依赖</div>
+      </div>
+    </div>
+  </div>
+  <div class="rm-counter">
+    <div class="rm-ccard">
+      <div class="rm-ctitle">⚠ 反指标 · 要主动压住什么</div>
+      <div class="rm-ci"><span class="tag ad">广告</span><b>ad load 设上限</b>，用户日均时长不准下滑</div>
+      <div class="rm-ci"><span class="tag vip">增值</span>不靠<b>诱导打赏</b>，大会员不粗暴涨价</div>
+      <div class="rm-ci"><span class="tag game">游戏</span>降低<b>单款依赖度</b>，守住买量 ROI 红线</div>
+      <div class="rm-ci"><span class="tag ec">电商</span>不<b>烧钱补贴自营</b>，GMV 不注水</div>
+    </div>
+    <div class="rm-ccard red">
+      <div class="rm-ctitle">⛔ 红线 · 绝对不碰（全程前置）</div>
+      <div class="rm-ci"><b>监管合规</b>：打赏/直播限额、未成年保护</div>
+      <div class="rm-ci"><b>内容安全</b>：审核、反作弊、行业资质校验</div>
+      <div class="rm-ci"><b>社区调性</b>：不让商业化侵蚀社区信任（即第一性原理）</div>
+      <div class="rm-ci"><b>数据合规</b>：与外部电商打通的后链路隐私边界</div>
     </div>
   </div>
 </div>
