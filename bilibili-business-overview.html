@@ -159,7 +159,12 @@
     border-radius: 18px; border: 1px solid; background: #111118;
     padding: 24px 26px 26px; position: relative;
     animation: pop .18s ease;
+    scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent;
   }
+  .modal::-webkit-scrollbar { width: 4px; }
+  .modal::-webkit-scrollbar-track { background: transparent; }
+  .modal::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 100px; }
+  .modal::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
   @keyframes pop { from { transform: scale(.96) translateY(8px); opacity: 0; } to { transform: none; opacity: 1; } }
   .modal-close {
     position: absolute; top: 16px; right: 16px; width: 30px; height: 30px;
