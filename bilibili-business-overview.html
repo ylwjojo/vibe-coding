@@ -10,7 +10,21 @@
     background: #0f0f13;
     color: #fff;
     padding: 32px 24px 40px;
+    display: flex;
+    flex-direction: column;
   }
+  /* information architecture order: 定位→模型→用户→营收结构→财务→竞争→战略 */
+  .firstprinciple { order: 3; }
+  .flywheel { order: 4; }
+  .persona { order: 5; }
+  .rev-legend { order: 6; margin-top: 22px; }
+  .grid { order: 7; }
+  .infra { order: 8; }
+  .profit { order: 9; }
+  .compete { order: 10; }
+  .priority { order: 11; }
+  .roadmap { order: 12; }
+  .whatif { order: 13; }
 
   h1 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 4px; }
   .subtitle { font-size: 12px; color: #555; margin-bottom: 16px; letter-spacing: .04em; }
@@ -404,6 +418,26 @@
   .rm-ci .tag.ad { color: #82b8ff; background: #172b55; } .rm-ci .tag.vip { color: #c49aff; background: #2e1458; }
   .rm-ci .tag.game { color: #7ae898; background: #163d22; } .rm-ci .tag.ec { color: #ffad5a; background: #4a2208; }
 
+  /* ===== competitive benchmark (external coordinates) ===== */
+  .compete { margin-top: 22px; border-radius: 16px; border: 1px solid #222230; background: #0d0e12; padding: 20px; }
+  .cp-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 13px; flex-wrap: wrap; }
+  .cp-badge { font-size: 9px; font-weight: 800; letter-spacing: .1em; color: #0e0f16; background: #c9c9d4; padding: 3px 8px; border-radius: 5px; }
+  .cp-head h2 { font-size: 18px; font-weight: 800; color: #fff; }
+  .cp-head .s { font-size: 11px; color: #777; }
+  .cp-thesis { font-size: 12px; line-height: 1.55; color: #c8c8d0; background: #14141c; border: 1px solid #222230; border-radius: 9px; padding: 11px 13px; margin-bottom: 14px; }
+  .cp-thesis b { color: #ff9bb8; }
+  .cp-tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 10px; border: 1px solid #20202c; }
+  table.cp-table { width: 100%; border-collapse: collapse; min-width: 540px; }
+  .cp-table th, .cp-table td { padding: 9px 11px; text-align: left; font-size: 11px; border-bottom: 1px solid #1d1d28; white-space: nowrap; }
+  .cp-table tr:last-child td { border-bottom: none; }
+  .cp-table thead th { font-weight: 800; color: #bbb; background: #131319; }
+  .cp-table thead th.bili { color: #ff9bb8; background: #1c0e14; }
+  .cp-table td.dim { color: #9a9aa6; font-weight: 700; background: #131319; }
+  .cp-table td.bili { background: #160b1099; color: #fff; font-weight: 700; }
+  .cp-hi { color: #6fcf8a; font-weight: 700; } .cp-mid { color: #e0b15a; font-weight: 700; } .cp-lo { color: #e87a7a; font-weight: 700; }
+  .cp-concl { margin-top: 14px; font-size: 11.5px; line-height: 1.6; color: #b8b8c2; background: #14141c; border: 1px solid #222230; border-radius: 9px; padding: 12px 14px; }
+  .cp-concl b { color: #fff; } .cp-concl .win { color: #6fcf8a; font-weight: 700; } .cp-concl .gap { color: #e87a7a; font-weight: 700; }
+
   /* ===== mobile / app adaptation ===== */
   @media (max-width: 600px) {
     body { padding: 18px 13px 30px; -webkit-text-size-adjust: 100%; }
@@ -429,6 +463,7 @@
     .fw-chart { max-width: 380px; margin: 0 auto; width: 100%; }
     .profit { padding: 16px; } .pf-cols { grid-template-columns: 1fr; }
     .roadmap { padding: 16px; } .rm-grid { grid-template-columns: 1fr; } .rm-counter { grid-template-columns: 1fr; }
+    .compete { padding: 16px; }
     /* modal becomes a bottom sheet */
     .overlay { padding: 0; align-items: flex-end; }
     .modal { max-width: 100%; max-height: 90vh; border-radius: 20px 20px 0 0; padding: 22px 18px calc(24px + env(safe-area-inset-bottom)); }
@@ -1042,6 +1077,32 @@
     </div>
   </div>
   <div class="wi-note">※ 这是<b>示意性简化模型</b>，用于演示驱动因子的方向与敏感度，非精确财务预测；系数为合理假设（含“广告过载拖累增值”等耦合关系）。</div>
+</div>
+
+<div class="compete">
+  <div class="cp-head">
+    <span class="cp-badge">外部坐标</span>
+    <h2>竞品对标 · B站在牌桌上的位置</h2>
+    <span class="s">不拼规模，拼信任密度</span>
+  </div>
+  <div class="cp-thesis">B站不在“流量规模”上硬拼抖快，而在<b>“社区信任深度”</b>上独占一席——同样的用户时长，B站的内容更深、UP主信任更强，于是<b>种草转化质量更高</b>；代价是用户规模、商业化效率、电商都不及抖快。</div>
+  <div class="cp-tablewrap">
+    <table class="cp-table">
+      <thead>
+        <tr><th>维度</th><th class="bili">B站</th><th>抖音</th><th>快手</th><th>小红书</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="dim">核心内容形态</td><td class="bili">中长视频 + 社区</td><td>短视频</td><td>短视频 + 直播</td><td>图文种草</td></tr>
+        <tr><td class="dim">用户规模 MAU（约）</td><td class="bili">3.76亿</td><td>~7.7亿</td><td>~7亿</td><td>~3.5亿</td></tr>
+        <tr><td class="dim">日均使用时长</td><td class="bili">~112 分钟</td><td>~120 分钟</td><td>~120 分钟</td><td>~60 分钟</td></tr>
+        <tr><td class="dim">社区信任 / 达人关系</td><td class="bili"><span class="cp-hi">强</span></td><td><span class="cp-lo">弱</span>（算法流量）</td><td><span class="cp-mid">中</span>（老铁）</td><td><span class="cp-mid">中</span>（种草）</td></tr>
+        <tr><td class="dim">商业化效率 ad load</td><td class="bili"><span class="cp-lo">低</span> · 有空间</td><td><span class="cp-hi">高</span></td><td><span class="cp-mid">中高</span></td><td><span class="cp-mid">中</span></td></tr>
+        <tr><td class="dim">电商成熟度</td><td class="bili"><span class="cp-lo">弱</span></td><td><span class="cp-hi">极强</span></td><td><span class="cp-hi">强</span></td><td><span class="cp-mid">中</span>（买手）</td></tr>
+        <tr><td class="dim">核心人群</td><td class="bili">Z世代 · 二次元</td><td>全民</td><td>下沉</td><td>都市女性</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cp-concl"><b>差异化护城河 = <span class="win">信任 × Z世代心智</span></b>——这是抖快用规模换不来的。<b>短板 = <span class="gap">规模 / 商业化效率 / 电商</span></b>。战略含义:守住信任差异化，<b>别硬学“抖音式高 ad load + 重电商”</b>——那等于用自己的短板拼对手的长板，还会让信任飞轮打滑（呼应第一性原理）。※ 竞品 MAU 为公开口径约数，仅作量级参照。</div>
 </div>
 
 <!-- ===== modal ===== -->
