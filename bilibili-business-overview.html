@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -260,6 +261,64 @@
   .modal.t-ec   .m-cta { color: #ffad5a; border-color: #6e360f; background: #1c1008; }
   .modal.t-ec   .m-core { background: #1c100855; border-color: #5c2d0d; } .modal.t-ec .m-core .ct { color: #ffad5a; }
   .modal.t-ec   .m-persona { border-color: #5c2d0d; } .modal.t-ec .mp-aud { color: #ffad5a; }
+
+  /* ===== strategy priority matrix (decision layer) ===== */
+  .priority { margin-top: 22px; border-radius: 16px; border: 1px solid #1d3138; background: #0a1216; padding: 20px; }
+  .prio-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .prio-badge { font-size: 9px; font-weight: 800; letter-spacing: .1em; color: #06181c; background: #5fd9e0; padding: 3px 8px; border-radius: 5px; }
+  .prio-head h2 { font-size: 18px; font-weight: 800; color: #9fe9ee; }
+  .prio-head .s { font-size: 11px; color: #5a7a80; }
+  .prio-wrap { display: grid; grid-template-columns: 358px 1fr; gap: 20px; align-items: center; }
+  .prio-chart svg { width: 100%; height: auto; display: block; }
+  .prio-chart [data-key] { cursor: pointer; }
+  .prio-list { display: flex; flex-direction: column; gap: 9px; }
+  .prio-card { border-radius: 11px; padding: 12px 14px; border: 1px solid #222230; border-left-width: 3px; background: #12121a; cursor: pointer; transition: transform .14s ease, background .14s ease; }
+  .prio-card:hover { transform: translateY(-2px); background: #16161f; }
+  .prio-top { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+  .prio-name { font-size: 13px; font-weight: 800; }
+  .prio-rev { font-size: 10px; color: #888; font-weight: 700; }
+  .prio-act { font-size: 10px; font-weight: 800; padding: 2px 9px; border-radius: 100px; margin-left: auto; white-space: nowrap; }
+  .prio-desc { font-size: 11px; color: #b2b2bc; line-height: 1.5; }
+  .prio-desc b { color: #fff; font-weight: 700; }
+  .prio-card.ad   { border-left-color: #5f9cf0; } .prio-card.ad .prio-name { color: #82b8ff; }
+  .prio-card.vip  { border-left-color: #a970f0; } .prio-card.vip .prio-name { color: #c49aff; }
+  .prio-card.game { border-left-color: #4ec870; } .prio-card.game .prio-name { color: #7ae898; }
+  .prio-card.ec   { border-left-color: #e08030; } .prio-card.ec .prio-name { color: #ffad5a; }
+  .act-invest { color: #6fcf8a; background: #12281a; }
+  .act-hold   { color: #c49aff; background: #2e1458; }
+  .act-bet    { color: #e0b15a; background: #2a2210; }
+  .act-test   { color: #9aa6b0; background: #232830; }
+
+  /* ===== mobile / app adaptation ===== */
+  @media (max-width: 600px) {
+    body { padding: 18px 13px 30px; -webkit-text-size-adjust: 100%; }
+    h1 { font-size: 18px; }
+    .subtitle { font-size: 11px; }
+    .grid { grid-template-columns: 1fr; }
+    .block { padding: 16px; }
+    .infra-grid { grid-template-columns: repeat(2, 1fr); }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .persona { padding: 16px; }
+    .persona-cols { grid-template-columns: 1fr; }
+    .beh-wrap { grid-template-columns: 1fr; gap: 14px; }
+    .beh-chart { width: 172px; height: 172px; margin: 0 auto; }
+    .beh-hint { display: block; margin: 4px 0 0; }
+    .priority { padding: 16px; }
+    .prio-wrap { grid-template-columns: 1fr; gap: 16px; }
+    .prio-chart { max-width: 360px; margin: 0 auto; width: 100%; }
+    /* modal becomes a bottom sheet */
+    .overlay { padding: 0; align-items: flex-end; }
+    .modal { max-width: 100%; max-height: 90vh; border-radius: 20px 20px 0 0; padding: 22px 18px calc(24px + env(safe-area-inset-bottom)); }
+    .m-title { font-size: 18px; }
+    .mp-row { gap: 8px; } .mp-k { width: 56px; }
+    .mp-top { flex-wrap: wrap; }
+  }
+  @media (max-width: 380px) {
+    .rev-legend { gap: 8px 12px; }
+    .leg { font-size: 10px; }
+    .infra-grid { grid-template-columns: repeat(2, 1fr); }
+    .kpi .num { font-size: 20px; }
+  }
 </style>
 </head>
 <body>
@@ -558,6 +617,72 @@
 
 </div>
 
+<div class="priority">
+  <div class="prio-head">
+    <span class="prio-badge">决策层</span>
+    <h2>战略优先级 · 机会 × 能力矩阵</h2>
+    <span class="s">该加码 / 守成 / 押注 / 试验？点卡片或气泡看业务详情</span>
+  </div>
+  <div class="prio-wrap">
+    <div class="prio-chart">
+      <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- quadrant tints -->
+        <rect x="190" y="16" width="154" height="126" fill="#4ec8700f"></rect>
+        <rect x="36"  y="16" width="154" height="126" fill="#e080300f"></rect>
+        <rect x="190" y="142" width="154" height="126" fill="#a970f00f"></rect>
+        <rect x="36"  y="142" width="154" height="126" fill="#6b77850f"></rect>
+        <!-- frame + dividers -->
+        <rect x="36" y="16" width="308" height="252" fill="none" stroke="#283038"></rect>
+        <line x1="190" y1="16" x2="190" y2="268" stroke="#283038"></line>
+        <line x1="36" y1="142" x2="344" y2="142" stroke="#283038"></line>
+        <!-- quadrant labels -->
+        <text x="338" y="30"  text-anchor="end"   font-size="10" font-weight="800" fill="#6fcf8a" opacity=".75">加码主投</text>
+        <text x="42"  y="30"  text-anchor="start" font-size="10" font-weight="800" fill="#e0b15a" opacity=".75">选择性押注</text>
+        <text x="338" y="261" text-anchor="end"   font-size="10" font-weight="800" fill="#c49aff" opacity=".75">守成 · 现金牛</text>
+        <text x="42"  y="261" text-anchor="start" font-size="10" font-weight="800" fill="#9aa6b0" opacity=".75">试验 · 重构</text>
+        <!-- axes -->
+        <text x="190" y="286" text-anchor="middle" font-size="10" fill="#6a7a80">商业化能力 / 护城河 →</text>
+        <text x="14" y="142" text-anchor="middle" font-size="10" fill="#6a7a80" transform="rotate(-90 14 142)">增量机会 / 空间 ↑</text>
+        <!-- bubbles -->
+        <g data-key="ad">
+          <circle cx="295" cy="60" r="23" fill="#5f9cf040" stroke="#5f9cf0" stroke-width="1.8"></circle>
+          <text x="295" y="64" text-anchor="middle" font-size="12" font-weight="800" fill="#cfe2ff">广告</text>
+        </g>
+        <g data-key="vip">
+          <circle cx="300" cy="182" r="26" fill="#a970f040" stroke="#a970f0" stroke-width="1.8"></circle>
+          <text x="300" y="186" text-anchor="middle" font-size="12" font-weight="800" fill="#e3d2ff">增值</text>
+        </g>
+        <g data-key="game">
+          <circle cx="165" cy="82" r="19" fill="#4ec87040" stroke="#4ec870" stroke-width="1.8"></circle>
+          <text x="165" y="86" text-anchor="middle" font-size="11" font-weight="800" fill="#cdf6da">游戏</text>
+        </g>
+        <g data-key="ec">
+          <circle cx="128" cy="165" r="12" fill="#e0803040" stroke="#e08030" stroke-width="1.8"></circle>
+          <text x="128" y="168" text-anchor="middle" font-size="9" font-weight="800" fill="#ffe0c2">电商</text>
+        </g>
+      </svg>
+    </div>
+    <div class="prio-list">
+      <div class="prio-card ad" data-key="ad">
+        <div class="prio-top"><span class="prio-name">广告</span><span class="prio-rev">100亿 · +23%</span><span class="prio-act act-invest">加码主投</span></div>
+        <div class="prio-desc">高机会 × 高能力。增长引擎，继续提 ad load + 扩效果广告客户盘，<b>当前最该重仓</b>的方向。</div>
+      </div>
+      <div class="prio-card vip" data-key="vip">
+        <div class="prio-top"><span class="prio-name">增值服务</span><span class="prio-rev">119亿 · +8%</span><span class="prio-act act-hold">守成 · 现金牛</span></div>
+        <div class="prio-desc">高能力 × 低机会（近天花板）。稳定现金牛，重心转向 <b>ARPU 提升与存量维系</b>（充电/会员权益），别赌高增速。</div>
+      </div>
+      <div class="prio-card game" data-key="game">
+        <div class="prio-top"><span class="prio-name">游戏</span><span class="prio-rev">64亿 · +14%</span><span class="prio-act act-bet">选择性押注</span></div>
+        <div class="prio-desc">中能力 × 中高机会。强依赖爆款，策略是“少而精”的自研+独代储备，<b>用社区壁垒控买量成本</b>对冲风险。</div>
+      </div>
+      <div class="prio-card ec" data-key="ec">
+        <div class="prio-top"><span class="prio-name">电商 &amp; IP</span><span class="prio-rev">20亿 · -3%</span><span class="prio-act act-test">试验 · 重构</span></div>
+        <div class="prio-desc">低能力 × 中机会。购物心智弱，坚持<b>轻资产大开环 + 聚焦 IP 衍生</b>，小步试错，别盲目自营重投。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ===== modal ===== -->
 <div class="overlay" id="overlay">
   <div class="modal" id="modal">
@@ -802,6 +927,17 @@ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMo
   }
   segs.forEach(bind);
   rows.forEach(bind);
+})();
+
+// priority matrix -> business modal linkage
+(function(){
+  document.querySelectorAll('.prio-card[data-key], .prio-chart [data-key]').forEach(function(el){
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', function(){
+      var k = el.getAttribute('data-key');
+      if(typeof openModal === 'function') openModal(k);
+    });
+  });
 })();
 </script>
 
