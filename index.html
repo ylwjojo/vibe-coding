@@ -143,7 +143,12 @@
   .beh-center .big { font-size: 26px; font-weight: 800; color: #ff9bb8; line-height: 1; }
   .beh-center .small { font-size: 9.5px; color: #9a7480; margin-top: 4px; text-align: center; line-height: 1.4; }
   .beh-legend { display: flex; flex-direction: column; gap: 6px; }
-  .beh-row { display: flex; align-items: center; gap: 8px; font-size: 11.5px; padding: 2px 0; }
+  .beh-hint { font-weight: 600; font-size: 10px; color: #8a6470; margin-left: 6px; }
+  .beh-chart circle { transition: opacity .15s ease; }
+  .beh-chart circle[data-key] { cursor: pointer; }
+  .beh-row { display: flex; align-items: center; gap: 8px; font-size: 11.5px; padding: 3px 6px; border-radius: 7px; transition: opacity .15s ease, background .15s ease; }
+  .beh-row[data-key] { cursor: pointer; }
+  .beh-row.hl { background: rgba(255,255,255,.06); }
   .beh-dot { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; }
   .beh-name { color: #b3a1a8; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
   .beh-row.commercial .beh-name { color: #ececf0; font-weight: 700; }
@@ -493,17 +498,17 @@
   </div>
 
   <div class="behavior pcard">
-    <div class="pcard-title">用户行为分析 · 用户主要在 B站做什么</div>
+    <div class="pcard-title">用户行为分析 · 用户主要在 B站做什么 <span class="beh-hint">点击扇区 / 图例 → 跳对应业务</span></div>
     <div class="beh-wrap">
       <div class="beh-chart">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="100" cy="100" r="70" fill="none" stroke="#5f9cf0" stroke-width="34" pathLength="100" stroke-dasharray="41.4 100" transform="rotate(-90 100 100)"></circle>
-          <circle cx="100" cy="100" r="70" fill="none" stroke="#4ec870" stroke-width="34" pathLength="100" stroke-dasharray="17.4 100" transform="rotate(61.2 100 100)"></circle>
-          <circle cx="100" cy="100" r="70" fill="none" stroke="#a970f0" stroke-width="34" pathLength="100" stroke-dasharray="12.4 100" transform="rotate(126 100 100)"></circle>
-          <circle cx="100" cy="100" r="70" fill="none" stroke="#fb7299" stroke-width="34" pathLength="100" stroke-dasharray="10.4 100" transform="rotate(172.8 100 100)"></circle>
-          <circle cx="100" cy="100" r="70" fill="none" stroke="#6b7785" stroke-width="34" pathLength="100" stroke-dasharray="8.4 100" transform="rotate(212.4 100 100)"></circle>
-          <circle cx="100" cy="100" r="70" fill="none" stroke="#2bc4c4" stroke-width="34" pathLength="100" stroke-dasharray="3.4 100" transform="rotate(244.8 100 100)"></circle>
-          <circle cx="100" cy="100" r="70" fill="none" stroke="#e08030" stroke-width="34" pathLength="100" stroke-dasharray="2.4 100" transform="rotate(259.2 100 100)"></circle>
+          <circle data-key="ad"   cx="100" cy="100" r="70" fill="none" stroke="#5f9cf0" stroke-width="34" pathLength="100" stroke-dasharray="41.4 100" transform="rotate(-90 100 100)"></circle>
+          <circle data-key="game" cx="100" cy="100" r="70" fill="none" stroke="#4ec870" stroke-width="34" pathLength="100" stroke-dasharray="17.4 100" transform="rotate(61.2 100 100)"></circle>
+          <circle data-key="vip"  cx="100" cy="100" r="70" fill="none" stroke="#a970f0" stroke-width="34" pathLength="100" stroke-dasharray="12.4 100" transform="rotate(126 100 100)"></circle>
+          <circle data-key="vip"  cx="100" cy="100" r="70" fill="none" stroke="#fb7299" stroke-width="34" pathLength="100" stroke-dasharray="10.4 100" transform="rotate(172.8 100 100)"></circle>
+          <circle                 cx="100" cy="100" r="70" fill="none" stroke="#6b7785" stroke-width="34" pathLength="100" stroke-dasharray="8.4 100" transform="rotate(212.4 100 100)"></circle>
+          <circle data-key="vip"  cx="100" cy="100" r="70" fill="none" stroke="#2bc4c4" stroke-width="34" pathLength="100" stroke-dasharray="3.4 100" transform="rotate(244.8 100 100)"></circle>
+          <circle data-key="ec"   cx="100" cy="100" r="70" fill="none" stroke="#e08030" stroke-width="34" pathLength="100" stroke-dasharray="2.4 100" transform="rotate(259.2 100 100)"></circle>
         </svg>
         <div class="beh-center">
           <div class="big">91%</div>
@@ -511,22 +516,22 @@
         </div>
       </div>
       <div class="beh-legend">
-        <div class="beh-row commercial">
+        <div class="beh-row commercial" data-key="ad">
           <span class="beh-dot" style="background:#5f9cf0"></span>
           <span class="beh-name">看 PUGV 内容（生活/娱乐/科技/知识）<span class="beh-tag ad">广告变现</span></span>
           <span class="beh-pct">42%</span>
         </div>
-        <div class="beh-row commercial">
+        <div class="beh-row commercial" data-key="game">
           <span class="beh-dot" style="background:#4ec870"></span>
           <span class="beh-name">逛游戏区 / 玩游戏<span class="beh-tag game">游戏</span></span>
           <span class="beh-pct">18%</span>
         </div>
-        <div class="beh-row commercial">
+        <div class="beh-row commercial" data-key="vip">
           <span class="beh-dot" style="background:#a970f0"></span>
           <span class="beh-name">看番剧 · 国创 · 影视<span class="beh-tag vip">大会员</span></span>
           <span class="beh-pct">13%</span>
         </div>
-        <div class="beh-row commercial">
+        <div class="beh-row commercial" data-key="vip">
           <span class="beh-dot" style="background:#fb7299"></span>
           <span class="beh-name">看直播<span class="beh-tag vip">打赏</span><span class="beh-tag ec">带货</span></span>
           <span class="beh-pct">11%</span>
@@ -536,12 +541,12 @@
           <span class="beh-name">弹幕 · 评论 · 一键三连<span class="beh-tag eco">生态黏性 · 非直接变现</span></span>
           <span class="beh-pct">9%</span>
         </div>
-        <div class="beh-row commercial">
+        <div class="beh-row commercial" data-key="vip">
           <span class="beh-dot" style="background:#2bc4c4"></span>
           <span class="beh-name">知识学习 · 付费课堂<span class="beh-tag vip">知识付费</span></span>
           <span class="beh-pct">4%</span>
         </div>
-        <div class="beh-row commercial">
+        <div class="beh-row commercial" data-key="ec">
           <span class="beh-dot" style="background:#e08030"></span>
           <span class="beh-name">购物 · 会员购<span class="beh-tag ec">电商</span></span>
           <span class="beh-pct">3%</span>
@@ -773,6 +778,31 @@ document.querySelectorAll('.block').forEach(function(b){
 document.getElementById('modalClose').addEventListener('click', closeModal);
 overlay.addEventListener('click', function(e){ if(e.target === overlay) closeModal(); });
 document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+
+// behavior chart <-> business modal linkage
+(function(){
+  var segs = document.querySelectorAll('.beh-chart circle');
+  var rows = document.querySelectorAll('.beh-row');
+  function setActive(key, on){
+    segs.forEach(function(c){
+      c.style.opacity = (on && c.getAttribute('data-key') !== key) ? '.25' : '';
+    });
+    rows.forEach(function(r){
+      var match = r.getAttribute('data-key') === key;
+      r.style.opacity = (on && !match) ? '.4' : '';
+      r.classList.toggle('hl', on && match);
+    });
+  }
+  function bind(el){
+    var key = el.getAttribute('data-key');
+    if(!key) return;
+    el.addEventListener('mouseenter', function(){ setActive(key, true); });
+    el.addEventListener('mouseleave', function(){ setActive(key, false); });
+    el.addEventListener('click', function(){ if(typeof openModal === 'function') openModal(key); });
+  }
+  segs.forEach(bind);
+  rows.forEach(bind);
+})();
 </script>
 
 </body>
