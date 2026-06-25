@@ -289,6 +289,43 @@
   .act-bet    { color: #e0b15a; background: #2a2210; }
   .act-test   { color: #9aa6b0; background: #232830; }
 
+  /* ===== what-if interactive model (simulation layer) ===== */
+  .whatif { margin-top: 22px; border-radius: 16px; border: 1px solid #1d3138; background: #0a1216; padding: 20px; }
+  .wi-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .wi-badge { font-size: 9px; font-weight: 800; letter-spacing: .1em; color: #06181c; background: #5fd9e0; padding: 3px 8px; border-radius: 5px; }
+  .wi-head h2 { font-size: 18px; font-weight: 800; color: #9fe9ee; }
+  .wi-head .s { font-size: 11px; color: #5a7a80; }
+  .wi-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+  .wi-controls { display: flex; flex-direction: column; gap: 15px; }
+  .wi-ctrl-top { display: flex; justify-content: space-between; align-items: baseline; }
+  .wi-label { font-size: 12px; font-weight: 700; color: #c8d4d6; }
+  .wi-val { font-size: 13px; font-weight: 800; color: #9fe9ee; font-variant-numeric: tabular-nums; }
+  .wi-hint { font-size: 10px; color: #5a7a80; margin-top: 4px; line-height: 1.4; }
+  .wi-range { width: 100%; -webkit-appearance: none; appearance: none; height: 5px; border-radius: 100px; background: #1d2a30; outline: none; margin-top: 9px; }
+  .wi-range::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #5fd9e0; cursor: pointer; box-shadow: 0 0 0 4px rgba(95,217,224,.15); }
+  .wi-range::-moz-range-thumb { width: 16px; height: 16px; border: none; border-radius: 50%; background: #5fd9e0; cursor: pointer; }
+  .wi-reset { margin-top: 2px; align-self: flex-start; font-size: 11px; font-weight: 700; color: #9fe9ee; background: #0d1a1f; border: 1px solid #1d3138; border-radius: 8px; padding: 7px 12px; cursor: pointer; transition: background .14s ease; }
+  .wi-reset:hover { background: #12252b; }
+  .wi-results { display: flex; flex-direction: column; gap: 12px; }
+  .wi-total-card { border: 1px solid #1d3138; border-radius: 12px; background: #0d1a1f; padding: 14px 16px; }
+  .wi-total-label { font-size: 10px; font-weight: 800; letter-spacing: .1em; color: #5a7a80; text-transform: uppercase; }
+  .wi-total { font-size: 32px; font-weight: 800; color: #9fe9ee; line-height: 1.1; margin-top: 4px; }
+  .wi-total span { font-size: 15px; }
+  .wi-delta { font-size: 11.5px; font-weight: 700; margin-top: 3px; }
+  .wi-delta.up { color: #6fcf8a; } .wi-delta.down { color: #e87a7a; } .wi-delta.flat { color: #7a8a8e; }
+  .wi-bizlist { display: flex; flex-direction: column; gap: 9px; }
+  .wi-biz-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+  .wi-bn { font-size: 11.5px; font-weight: 700; }
+  .wi-bn.ad { color: #82b8ff; } .wi-bn.vip { color: #c49aff; } .wi-bn.game { color: #7ae898; } .wi-bn.ec { color: #ffad5a; }
+  .wi-bv { font-size: 11.5px; font-weight: 800; color: #fff; }
+  .wi-bd { font-size: 10px; font-weight: 700; margin-left: 4px; }
+  .wi-bd.up { color: #6fcf8a; } .wi-bd.down { color: #e87a7a; } .wi-bd.flat { color: #7a8a8e; }
+  .wi-bar-track { height: 6px; border-radius: 100px; background: #16242a; overflow: hidden; }
+  .wi-bar-fill { height: 100%; border-radius: 100px; transition: width .15s ease; }
+  .wi-bar-fill.ad { background: #5f9cf0; } .wi-bar-fill.vip { background: #a970f0; } .wi-bar-fill.game { background: #4ec870; } .wi-bar-fill.ec { background: #e08030; }
+  .wi-note { font-size: 10px; color: #5a7a80; margin-top: 14px; line-height: 1.55; }
+  .wi-note b { color: #9fe9ee; }
+
   /* ===== mobile / app adaptation ===== */
   @media (max-width: 600px) {
     body { padding: 18px 13px 30px; -webkit-text-size-adjust: 100%; }
@@ -306,6 +343,8 @@
     .priority { padding: 16px; }
     .prio-wrap { grid-template-columns: 1fr; gap: 16px; }
     .prio-chart { max-width: 360px; margin: 0 auto; width: 100%; }
+    .whatif { padding: 16px; }
+    .wi-wrap { grid-template-columns: 1fr; gap: 18px; }
     /* modal becomes a bottom sheet */
     .overlay { padding: 0; align-items: flex-end; }
     .modal { max-width: 100%; max-height: 90vh; border-radius: 20px 20px 0 0; padding: 22px 18px calc(24px + env(safe-area-inset-bottom)); }
@@ -683,6 +722,65 @@
   </div>
 </div>
 
+<div class="whatif">
+  <div class="wi-head">
+    <span class="wi-badge">推演层</span>
+    <h2>What-if 交互模型 · 拖动假设看营收</h2>
+    <span class="s">改变关键驱动因子，实时推演总营收</span>
+  </div>
+  <div class="wi-wrap">
+    <div class="wi-controls">
+      <div class="wi-ctrl">
+        <div class="wi-ctrl-top"><span class="wi-label">月活 MAU</span><span class="wi-val" id="mau_v">3.76亿</span></div>
+        <input id="wi_mau" class="wi-range" type="range" min="3.2" max="4.5" step="0.01" value="3.76">
+        <div class="wi-hint">用户规模 → 影响广告 / 增值 / 电商</div>
+      </div>
+      <div class="wi-ctrl">
+        <div class="wi-ctrl-top"><span class="wi-label">广告加载率 ad load</span><span class="wi-val" id="ad_v">1.00×</span></div>
+        <input id="wi_ad" class="wi-range" type="range" min="0.8" max="1.6" step="0.01" value="1.0">
+        <div class="wi-hint">提高即增收，但过高（&gt;1.2×）会拖累社区体验与增值</div>
+      </div>
+      <div class="wi-ctrl">
+        <div class="wi-ctrl-top"><span class="wi-label">大会员付费渗透</span><span class="wi-val" id="vip_v">1.00×</span></div>
+        <input id="wi_vip" class="wi-range" type="range" min="0.8" max="1.5" step="0.01" value="1.0">
+        <div class="wi-hint">付费率 / ARPU → 影响增值服务</div>
+      </div>
+      <div class="wi-ctrl">
+        <div class="wi-ctrl-top"><span class="wi-label">年度游戏爆款数</span><span class="wi-val" id="hits_v">1 款</span></div>
+        <input id="wi_hits" class="wi-range" type="range" min="0" max="3" step="1" value="1">
+        <div class="wi-hint">每个爆款约 +24亿 → 决定游戏波动</div>
+      </div>
+      <button class="wi-reset" id="wiReset">↺ 重置为 2025 基线</button>
+    </div>
+    <div class="wi-results">
+      <div class="wi-total-card">
+        <div class="wi-total-label">推演总营收</div>
+        <div class="wi-total" id="wiTotal">303<span>亿</span></div>
+        <div class="wi-delta flat" id="wiDelta">与 2025 基线持平（≈303亿）</div>
+      </div>
+      <div class="wi-bizlist">
+        <div class="wi-biz">
+          <div class="wi-biz-top"><span class="wi-bn ad">广告</span><span class="wi-bv" id="wiAd">100亿</span></div>
+          <div class="wi-bar-track"><div class="wi-bar-fill ad" id="wiAdBar"></div></div>
+        </div>
+        <div class="wi-biz">
+          <div class="wi-biz-top"><span class="wi-bn vip">增值服务</span><span class="wi-bv" id="wiVip">119亿</span></div>
+          <div class="wi-bar-track"><div class="wi-bar-fill vip" id="wiVipBar"></div></div>
+        </div>
+        <div class="wi-biz">
+          <div class="wi-biz-top"><span class="wi-bn game">游戏</span><span class="wi-bv" id="wiGame">64亿</span></div>
+          <div class="wi-bar-track"><div class="wi-bar-fill game" id="wiGameBar"></div></div>
+        </div>
+        <div class="wi-biz">
+          <div class="wi-biz-top"><span class="wi-bn ec">电商 &amp; IP</span><span class="wi-bv" id="wiEc">20亿</span></div>
+          <div class="wi-bar-track"><div class="wi-bar-fill ec" id="wiEcBar"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wi-note">※ 这是<b>示意性简化模型</b>，用于演示驱动因子的方向与敏感度，非精确财务预测；系数为合理假设（含“广告过载拖累增值”等耦合关系）。</div>
+</div>
+
 <!-- ===== modal ===== -->
 <div class="overlay" id="overlay">
   <div class="modal" id="modal">
@@ -938,6 +1036,58 @@ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMo
       if(typeof openModal === 'function') openModal(k);
     });
   });
+})();
+
+// what-if interactive revenue model
+(function(){
+  var ids = ['mau','ad','vip','hits'];
+  var S = {};
+  ids.forEach(function(k){ S[k] = document.getElementById('wi_'+k); });
+  if(!S.mau) return;
+  var BASE_TOTAL = 303;
+
+  function deltaSpan(v, b){
+    var d = Math.round(v - b);
+    if(d === 0) return '<span class="wi-bd flat">±0</span>';
+    return '<span class="wi-bd ' + (d>0?'up':'down') + '">' + (d>0?'+':'') + d + '亿</span>';
+  }
+  function setBiz(id, val, b){
+    document.getElementById('wi'+id).innerHTML = Math.round(val) + '亿 ' + deltaSpan(val, b);
+    document.getElementById('wi'+id+'Bar').style.width = Math.min(100, val/1.9) + '%';
+  }
+  function recalc(){
+    var mau = parseFloat(S.mau.value), a = parseFloat(S.ad.value),
+        p = parseFloat(S.vip.value), h = parseInt(S.hits.value, 10);
+    var m = mau / 3.76;
+    var uxp   = 1 - Math.max(0, a - 1.2) * 0.25;   // heavy ads hurt engagement -> 增值
+    var uxpAd = 1 - Math.max(0, a - 1.2) * 0.15;   // mild self-diminishing returns
+
+    var ad   = 100 * m * a * uxpAd;
+    var vip  = 119 * Math.pow(m, 0.7) * p * uxp;
+    var game = 40 + h * 24;
+    var ec   = 20 * Math.pow(m, 0.6);
+    var total = ad + vip + game + ec;
+
+    document.getElementById('mau_v').textContent  = mau.toFixed(2) + '亿';
+    document.getElementById('ad_v').textContent   = a.toFixed(2) + '×';
+    document.getElementById('vip_v').textContent  = p.toFixed(2) + '×';
+    document.getElementById('hits_v').textContent = h + ' 款';
+
+    setBiz('Ad', ad, 100); setBiz('Vip', vip, 119);
+    setBiz('Game', game, 64); setBiz('Ec', ec, 20);
+
+    document.getElementById('wiTotal').innerHTML = Math.round(total) + '<span>亿</span>';
+    var td = Math.round(total - BASE_TOTAL);
+    var de = document.getElementById('wiDelta');
+    if(td === 0){ de.className = 'wi-delta flat'; de.textContent = '与 2025 基线持平（≈303亿）'; }
+    else { de.className = 'wi-delta ' + (td>0?'up':'down');
+      de.textContent = (td>0 ? '▲ +' : '▼ ') + td + '亿　vs 2025 基线 303亿'; }
+  }
+  ids.forEach(function(k){ S[k].addEventListener('input', recalc); });
+  document.getElementById('wiReset').addEventListener('click', function(){
+    S.mau.value = 3.76; S.ad.value = 1.0; S.vip.value = 1.0; S.hits.value = 1; recalc();
+  });
+  recalc();
 })();
 </script>
 
