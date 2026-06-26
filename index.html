@@ -439,6 +439,30 @@
   .cp-niche b { color: #e8e8f0; font-weight: 700; }
   .cp-niche.bili { background: #fb72990d; border-radius: 7px; padding: 5px 8px; margin: -3px -8px; }
   .cp-niche.bili b { color: #ff9bb8; }
+  .cp-niche[data-comp] { cursor: pointer; border-radius: 7px; padding: 5px 8px; margin: -3px -8px; transition: background .14s ease; }
+  .cp-niche[data-comp]:hover { background: #ffffff08; }
+  .cp-map [data-comp] { cursor: pointer; }
+
+  /* competitor commercial modal */
+  .cpm-tagrow { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 2px; }
+  .cpm-listed { font-size: 9px; font-weight: 700; color: #999; background: #1a1a24; border: 1px solid #2a2a38; border-radius: 100px; padding: 2px 9px; white-space: nowrap; }
+  .cpm-kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 14px 0 6px; }
+  .cpm-kpi { background: #14141c; border: 1px solid #222230; border-radius: 10px; padding: 10px 12px; }
+  .cpm-kpi .v { font-size: 15px; font-weight: 800; line-height: 1.15; color: #fff; }
+  .cpm-kpi .l { font-size: 9.5px; color: #888; margin-top: 3px; line-height: 1.35; }
+  .cpm-srow { margin-bottom: 10px; }
+  .cpm-stop { display: flex; justify-content: space-between; align-items: baseline; font-size: 11.5px; margin-bottom: 5px; }
+  .cpm-stop .nm { color: #ccc; } .cpm-stop .vl { font-weight: 800; }
+  .cpm-strack { height: 6px; border-radius: 100px; background: #1a1a24; overflow: hidden; }
+  .cpm-sfill { height: 100%; border-radius: 100px; }
+  .cpm-sline { font-size: 11.5px; color: #c4c4cc; line-height: 1.5; padding-left: 14px; position: relative; margin-bottom: 7px; }
+  .cpm-sline::before { content: "•"; position: absolute; left: 3px; opacity: .5; }
+  .cpm-sline b { color: #fff; font-weight: 700; }
+  .cpm-status { font-size: 12px; line-height: 1.62; color: #c8c8d0; }
+  .cpm-status b { color: #fff; }
+  .cpm-vs { font-size: 11.5px; line-height: 1.55; color: #c9b3ba; background: #160b10; border: 1px solid #3a1822; border-radius: 10px; padding: 11px 13px; margin-top: 14px; }
+  .cpm-vs b { color: #ff9bb8; font-weight: 700; }
+  .cpm-note { font-size: 10px; color: #666; margin-top: 10px; line-height: 1.5; }
   .cp-tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 10px; border: 1px solid #20202c; }
   table.cp-table { width: 100%; border-collapse: collapse; min-width: 540px; }
   .cp-table th, .cp-table td { padding: 9px 11px; text-align: left; font-size: 11px; border-bottom: 1px solid #1d1d28; white-space: nowrap; }
@@ -1113,27 +1137,27 @@
       <text x="252" y="346" text-anchor="middle" font-size="10" fill="#6a7a80">内容深度 · 社区信任 →</text>
       <text x="14" y="168" text-anchor="middle" font-size="10" fill="#6a7a80" transform="rotate(-90 14 168)">用户规模 / 流量 ↑</text>
       <!-- competitors -->
-      <g>
+      <g data-comp="douyin">
         <circle cx="116" cy="40" r="26" fill="#3a5a7a55" stroke="#6a9ac0" stroke-width="1.4"></circle>
         <text x="116" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#cfd6dd">抖音</text>
         <text x="116" y="52" text-anchor="middle" font-size="8.5" fill="#8a96a0">7.7亿</text>
       </g>
-      <g>
+      <g data-comp="kuaishou">
         <circle cx="179" cy="65" r="24" fill="#6a4a3a55" stroke="#c08a6a" stroke-width="1.4"></circle>
         <text x="179" y="63" text-anchor="middle" font-size="12" font-weight="700" fill="#ddccc0">快手</text>
         <text x="179" y="77" text-anchor="middle" font-size="8.5" fill="#a0928a">7亿</text>
       </g>
-      <g>
+      <g data-comp="weibo">
         <circle cx="141" cy="113" r="21" fill="#6a6a3a55" stroke="#b0a060" stroke-width="1.4"></circle>
         <text x="141" y="111" text-anchor="middle" font-size="11" font-weight="700" fill="#dcd6c0">微博</text>
         <text x="141" y="124" text-anchor="middle" font-size="8" fill="#9a948a">5.8亿</text>
       </g>
-      <g>
+      <g data-comp="xhs">
         <circle cx="275" cy="153" r="18" fill="#6a3a4a55" stroke="#c06a80" stroke-width="1.4"></circle>
         <text x="275" y="151" text-anchor="middle" font-size="10" font-weight="700" fill="#e0c4cc">小红书</text>
         <text x="275" y="164" text-anchor="middle" font-size="8" fill="#a08a92">3.5亿</text>
       </g>
-      <g>
+      <g data-comp="zhihu">
         <circle cx="418" cy="235" r="12" fill="#3a4a6a55" stroke="#6a80c0" stroke-width="1.4"></circle>
         <text x="418" y="257" text-anchor="middle" font-size="9.5" font-weight="700" fill="#c0c8dd">知乎 1亿</text>
       </g>
@@ -1148,13 +1172,13 @@
   </div>
   <div class="cp-mapnote">气泡大小 = 月活规模。<b>抖音/快手/微博 扎堆在“高规模 · 浅信任”的左上角</b>，靠算法流量；<b>B站独占右侧“深度信任”高地</b>——这块地，规模换不来。知乎虽同样深，但流量量级差一档。</div>
 
-  <div class="cp-niches-title">各家生态位 · 一句话</div>
+  <div class="cp-niches-title">各家生态位 · 一句话 <span style="font-weight:600;font-size:10px;color:#777;">点名字/气泡看商业现状</span></div>
   <div class="cp-niches">
-    <div class="cp-niche"><span class="d" style="background:#6a9ac0"></span><span><b>抖音 — 全民流量场</b>：算法把内容推给所有人，广告与电商效率之王，但人与人之间没有深度关系。</span></div>
-    <div class="cp-niche"><span class="d" style="background:#c08a6a"></span><span><b>快手 — 老铁的下沉直播间</b>：信任来自“老铁”而非内容，私域与直播带货极强。</span></div>
-    <div class="cp-niche"><span class="d" style="background:#b0a060"></span><span><b>微博 — 公共舆论广场</b>：热点、明星、事件的实时发声地，强传播、弱沉淀。</span></div>
-    <div class="cp-niche"><span class="d" style="background:#c06a80"></span><span><b>小红书 — 都市女性的种草笔记</b>：真实分享建立购买信任，买手电商崛起。</span></div>
-    <div class="cp-niche"><span class="d" style="background:#6a80c0"></span><span><b>知乎 — 专业问答的深度高地</b>：内容最深、信任强，但流量与变现规模偏小。</span></div>
+    <div class="cp-niche" data-comp="douyin"><span class="d" style="background:#6a9ac0"></span><span><b>抖音 — 全民流量场</b>：算法把内容推给所有人，广告与电商效率之王，但人与人之间没有深度关系。</span></div>
+    <div class="cp-niche" data-comp="kuaishou"><span class="d" style="background:#c08a6a"></span><span><b>快手 — 老铁的下沉直播间</b>：信任来自“老铁”而非内容，私域与直播带货极强。</span></div>
+    <div class="cp-niche" data-comp="weibo"><span class="d" style="background:#b0a060"></span><span><b>微博 — 公共舆论广场</b>：热点、明星、事件的实时发声地，强传播、弱沉淀。</span></div>
+    <div class="cp-niche" data-comp="xhs"><span class="d" style="background:#c06a80"></span><span><b>小红书 — 都市女性的种草笔记</b>：真实分享建立购买信任，买手电商崛起。</span></div>
+    <div class="cp-niche" data-comp="zhihu"><span class="d" style="background:#6a80c0"></span><span><b>知乎 — 专业问答的深度高地</b>：内容最深、信任强，但流量与变现规模偏小。</span></div>
     <div class="cp-niche bili"><span class="d" style="background:#fb7299"></span><span><b>B站 — Z世代的信任社区</b>：中长视频 + 弹幕三连，UP主信任最厚，于是种草质量最高、变现路径最多元。</span></div>
   </div>
 
@@ -1223,6 +1247,29 @@
       <div class="note" id="mNote"></div>
       <a class="m-cta" id="mCta" target="_blank" rel="noopener">前往官网 ↗</a>
     </div>
+  </div>
+</div>
+
+<!-- ===== competitor commercial modal ===== -->
+<div class="overlay" id="cpOverlay">
+  <div class="modal" id="cpModal">
+    <button class="modal-close" id="cpClose" aria-label="关闭">×</button>
+    <div class="cpm-tagrow">
+      <div class="m-label" id="cpmNiche"></div>
+      <div class="cpm-listed" id="cpmListed"></div>
+    </div>
+    <div class="m-title" id="cpmName"></div>
+    <div class="cpm-kpis" id="cpmKpis"></div>
+    <div class="m-section">
+      <div class="m-h"><span class="bar" id="cpmBar1"></span>营收结构 / 变现支柱</div>
+      <div id="cpmStreams"></div>
+    </div>
+    <div class="m-section">
+      <div class="m-h"><span class="bar" id="cpmBar2"></span>商业现状</div>
+      <div class="cpm-status" id="cpmStatus"></div>
+    </div>
+    <div class="cpm-vs" id="cpmVs"></div>
+    <div class="cpm-note" id="cpmNote"></div>
   </div>
 </div>
 
@@ -1485,6 +1532,73 @@ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMo
     S.mau.value = 3.76; S.ad.value = 1.0; S.vip.value = 1.0; S.hits.value = 1; recalc();
   });
   recalc();
+})();
+
+// competitor commercial-status modal
+(function(){
+  var CPDATA = {
+    douyin: { name:"抖音 · 字节跳动", niche:"全民流量场", listed:"未上市 · 估算", accent:"#7aade0",
+      kpis:[{v:"~1.14万亿",l:"字节 2024 总营收(集团)"},{v:"~$330亿",l:"字节净利润(集团)"},{v:"~7.7亿",l:"抖音月活"},{v:"3.5万亿",l:"抖音电商 GMV +30%"}],
+      streams:[{n:"广告",note:"最大头 · 商业化效率天花板"},{n:"电商",note:"GMV 3.5万亿 · 已超京东列第三"},{n:"直播 + 本地生活",note:"高速增长的第二、三曲线"}],
+      status:"抖音是中国互联网<b>商业化效率的天花板</b>：超高 ad load + 闭环电商 + 本地生活，把流量榨取到极致。代价是内容浅、纯算法分发，用户与创作者之间<b>没有深度信任关系</b>。",
+      vs:"对比 B站：规模与变现效率<b>碾压</b> B站，但“信任深度”恰是它的结构性短板——这正是 B站 不该硬拼、也拼不过的方向。",
+      note:"字节未上市、抖音不单独披露财务，以上为公开估算口径。" },
+    kuaishou: { name:"快手", niche:"老铁的下沉直播间", listed:"上市 · 01024.HK", accent:"#d89a72",
+      kpis:[{v:"1269亿",l:"2024 总营收 +11.8%"},{v:"177亿",l:"经调整净利 +72.5%"},{v:"~7亿",l:"月活(DAU 4亿)"},{v:"1.39万亿",l:"电商 GMV +17.3%"}],
+      streams:[{n:"线上营销(广告)",p:57},{n:"直播",p:29},{n:"其他(含电商)",p:14}],
+      status:"商业化已<b>跑通且高盈利</b>：广告过半、直播与电商支撑，2024 首次全年大幅盈利。信任来自“老铁”私域关系，<b>直播带货</b>是看家本领。",
+      vs:"对比 B站：体量是 B站 的 <b>约 4 倍</b>、已大幅盈利；但内容偏短平快、用户偏下沉，与 B站 的 Z世代深度社区<b>错位竞争</b>。",
+      note:"" },
+    weibo: { name:"微博", niche:"公共舆论广场", listed:"上市 · WB", accent:"#c4b066",
+      kpis:[{v:"126亿",l:"2024 总营收 +1%"},{v:"42亿",l:"调整后运营利润"},{v:"~5.9亿",l:"月活"},{v:"-2%",l:"广告收入同比"}],
+      streams:[{n:"广告及营销",p:85},{n:"增值服务",p:15}],
+      status:"微博是<b>公共舆论广场</b>，但陷入<b>增长焦虑</b>——广告收入同比下滑、月活承压。高度依赖广告、缺第二曲线，商业化天花板已现。",
+      vs:"对比 B站：同为内容平台，但微博强传播、<b>弱沉淀与信任</b>，商业化天花板更低、增长基本停滞。",
+      note:"" },
+    xhs: { name:"小红书", niche:"都市女性的种草笔记", listed:"未上市 · 估算", accent:"#d67a90",
+      kpis:[{v:"~300亿+",l:"2024 营收 +42%"},{v:"超 $10亿",l:"净利润(已盈利)"},{v:"~3.5亿",l:"月活"},{v:"4000亿+",l:"电商 GMV +45%"}],
+      streams:[{n:"广告",p:72},{n:"电商及其他",p:28}],
+      status:"<b>增长最快</b>的种草社区：广告高增（216亿/+48%）、买手电商爆发（GMV +45%）、已盈利。商业化正全面提速，是当下最受关注的内容平台。",
+      vs:"对比 B站：同样靠“<b>信任种草</b>”，但小红书更偏图文、女性、<b>即时消费决策</b>；B站偏中长视频、Z世代、兴趣深度。两者是“种草”的不同切面——<b>最像 B站 的对手</b>。",
+      note:"未上市，营收为公开估算口径。" },
+    zhihu: { name:"知乎", niche:"专业问答的深度高地", listed:"上市 · ZH", accent:"#7a90d0",
+      kpis:[{v:"36亿",l:"2024 总营收 -14.5%"},{v:"Q4 首盈",l:"全年减亏 85%"},{v:"~1亿",l:"月活(下滑)"},{v:"付费阅读",l:"第一大收入板块"}],
+      streams:[{n:"付费会员(付费阅读)",p:50},{n:"营销服务(广告)",p:36},{n:"职业教育",p:14}],
+      status:"知乎“<b>断臂求生</b>”：营收下滑、月活连跌，靠付费阅读扛旗，2024 Q4 <b>首次单季盈利</b>。深度内容护城河仍在，但流量与商业化规模是硬伤。",
+      vs:"对比 B站：同处“深度信任”高地（生态位地图右侧），但知乎流量量级<b>差一档</b>、变现更窄——B站 是“深度 + 规模”兼得，知乎只有深度。",
+      note:"" }
+  };
+  var cpOverlay = document.getElementById('cpOverlay');
+  if(!cpOverlay) return;
+  function streamHTML(s, accent){
+    if(s.p != null){
+      return '<div class="cpm-srow"><div class="cpm-stop"><span class="nm">'+s.n+'</span><span class="vl" style="color:'+accent+'">'+s.p+'%</span></div><div class="cpm-strack"><div class="cpm-sfill" style="width:'+s.p+'%;background:'+accent+'"></div></div></div>';
+    }
+    return '<div class="cpm-sline"><b>'+s.n+'</b>'+(s.note? ' — '+s.note : '')+'</div>';
+  }
+  function openCompetitor(key){
+    var d = CPDATA[key]; if(!d) return;
+    var niche = document.getElementById('cpmNiche'); niche.textContent = d.niche; niche.style.color = d.accent;
+    document.getElementById('cpmListed').textContent = d.listed;
+    var nm = document.getElementById('cpmName'); nm.textContent = d.name; nm.style.color = d.accent;
+    document.getElementById('cpmBar1').style.background = d.accent;
+    document.getElementById('cpmBar2').style.background = d.accent;
+    document.getElementById('cpmKpis').innerHTML = d.kpis.map(function(k){
+      return '<div class="cpm-kpi"><div class="v" style="color:'+d.accent+'">'+k.v+'</div><div class="l">'+k.l+'</div></div>'; }).join('');
+    document.getElementById('cpmStreams').innerHTML = d.streams.map(function(s){ return streamHTML(s, d.accent); }).join('');
+    document.getElementById('cpmStatus').innerHTML = d.status;
+    document.getElementById('cpmVs').innerHTML = d.vs;
+    var note = document.getElementById('cpmNote'); note.innerHTML = d.note || ''; note.style.display = d.note ? 'block' : 'none';
+    document.getElementById('cpModal').scrollTop = 0;
+    cpOverlay.classList.add('open');
+  }
+  function closeCp(){ cpOverlay.classList.remove('open'); }
+  document.querySelectorAll('[data-comp]').forEach(function(el){
+    el.addEventListener('click', function(){ openCompetitor(el.getAttribute('data-comp')); });
+  });
+  document.getElementById('cpClose').addEventListener('click', closeCp);
+  cpOverlay.addEventListener('click', function(e){ if(e.target === cpOverlay) closeCp(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeCp(); });
 })();
 </script>
 
