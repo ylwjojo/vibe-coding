@@ -432,6 +432,13 @@
   .cp-mapnote { font-size: 10.5px; line-height: 1.55; color: #888; margin-bottom: 16px; }
   .cp-mapnote b { color: #ff9bb8; }
   .cp-detail-title { font-size: 11px; font-weight: 800; color: #999; margin-bottom: 8px; }
+  .cp-niches-title { font-size: 11px; font-weight: 800; color: #ddd; margin-bottom: 9px; }
+  .cp-niches { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .cp-niche { font-size: 11px; line-height: 1.45; color: #a8a8b2; display: flex; gap: 9px; align-items: baseline; }
+  .cp-niche .d { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; transform: translateY(1px); }
+  .cp-niche b { color: #e8e8f0; font-weight: 700; }
+  .cp-niche.bili { background: #fb72990d; border-radius: 7px; padding: 5px 8px; margin: -3px -8px; }
+  .cp-niche.bili b { color: #ff9bb8; }
   .cp-tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 10px; border: 1px solid #20202c; }
   table.cp-table { width: 100%; border-collapse: collapse; min-width: 540px; }
   .cp-table th, .cp-table td { padding: 9px 11px; text-align: left; font-size: 11px; border-bottom: 1px solid #1d1d28; white-space: nowrap; }
@@ -1140,6 +1147,16 @@
     </svg>
   </div>
   <div class="cp-mapnote">气泡大小 = 月活规模。<b>抖音/快手/微博 扎堆在“高规模 · 浅信任”的左上角</b>，靠算法流量；<b>B站独占右侧“深度信任”高地</b>——这块地，规模换不来。知乎虽同样深，但流量量级差一档。</div>
+
+  <div class="cp-niches-title">各家生态位 · 一句话</div>
+  <div class="cp-niches">
+    <div class="cp-niche"><span class="d" style="background:#6a9ac0"></span><span><b>抖音 — 全民流量场</b>：算法把内容推给所有人，广告与电商效率之王，但人与人之间没有深度关系。</span></div>
+    <div class="cp-niche"><span class="d" style="background:#c08a6a"></span><span><b>快手 — 老铁的下沉直播间</b>：信任来自“老铁”而非内容，私域与直播带货极强。</span></div>
+    <div class="cp-niche"><span class="d" style="background:#b0a060"></span><span><b>微博 — 公共舆论广场</b>：热点、明星、事件的实时发声地，强传播、弱沉淀。</span></div>
+    <div class="cp-niche"><span class="d" style="background:#c06a80"></span><span><b>小红书 — 都市女性的种草笔记</b>：真实分享建立购买信任，买手电商崛起。</span></div>
+    <div class="cp-niche"><span class="d" style="background:#6a80c0"></span><span><b>知乎 — 专业问答的深度高地</b>：内容最深、信任强，但流量与变现规模偏小。</span></div>
+    <div class="cp-niche bili"><span class="d" style="background:#fb7299"></span><span><b>B站 — Z世代的信任社区</b>：中长视频 + 弹幕三连，UP主信任最厚，于是种草质量最高、变现路径最多元。</span></div>
+  </div>
 
   <div class="cp-detail-title">数据明细</div>
   <div class="cp-tablewrap">
